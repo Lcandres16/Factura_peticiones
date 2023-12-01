@@ -3,6 +3,8 @@ package com.Factura_peticiones.service
 
 
 
+import com.Factura_peticiones.dto.ProductDto
+import com.Factura_peticiones.mapper.ProductMapper
 import com.Factura_peticiones.model.Product
 import com.Factura_peticiones.repository.ProductRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -83,6 +85,16 @@ class ProductService {
             .withIgnoreNullValues()
             .withMatcher("field", ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase())
         return productRepository.findAll(Example.of(product, matcher), pageable)
+    }
+
+    fun listDto(products: List<Product>): List<ProductDto> {
+        val productDtoList: MutableList<ProductDto> = mutableListOf()
+        for (product in products) {
+            val productDto = ProductMapper.mapToDto(product)
+            productDtoList.add(productDto)
+        }
+
+        return productDtoList
     }
 
 }
