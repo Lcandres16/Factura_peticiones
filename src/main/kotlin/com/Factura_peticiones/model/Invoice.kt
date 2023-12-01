@@ -14,7 +14,6 @@ class Invoice {
     @Column(name="create_at")
     var createAt: Date? = null
     var total: Int? = null
-    val month: String? =null
     @Column(name="client_id")
     var client_Id: Long? = null
 
