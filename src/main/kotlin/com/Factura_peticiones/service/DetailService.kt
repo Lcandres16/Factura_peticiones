@@ -33,10 +33,8 @@ class DetailService {
             it.stok = currentStock - (detail.quantity ?: 0)
             productRepository.save(it)
         }
-        val  invoiceid
         return response
     }
-
 
 
     fun update(detail: Detail): Detail {

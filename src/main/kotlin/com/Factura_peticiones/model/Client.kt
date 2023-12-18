@@ -22,4 +22,5 @@ class Client {
     var full_name: String? = null
     @NotBlank(message="Campo obligatorio")
     var address: String? = null
+    var email: String? = null
 }
