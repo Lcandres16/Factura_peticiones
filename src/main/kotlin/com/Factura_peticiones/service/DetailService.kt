@@ -1,8 +1,7 @@
 package com.Factura_peticiones.service
 
 
-
-
+import java.math.BigDecimal
 import com.Factura_peticiones.model.Detail
 import com.Factura_peticiones.repository.DetailRepository
 import com.Factura_peticiones.repository.InvoiceRepository
@@ -35,6 +34,31 @@ class DetailService {
         }
         return response
     }
+
+
+    /*
+fun save(detail: Detail): Detail {
+    val response = detailRepository.save(detail)
+
+    // Update product stock
+    val product = productRepository.findById(detail.product_Id)
+    product?.let {
+        val currentStock = it.stok ?: 0
+        it.stok = currentStock - (detail.quantity ?: 0)
+        productRepository.save(it)
+    }
+
+    // Update invoice total
+    val totalCalculated = detailRepository.sumTotal(detail.invoice_Id)?.toInt()
+    val invoiceResponse = invoiceRepository.findById(detail.invoice_Id)
+    invoiceResponse?.let {
+        it.total = totalCalculated?.toBigDecimal() ?: BigDecimal.ZERO
+        invoiceRepository.save(it)
+    }
+
+    return response
+}
+*/
 
 
     fun update(detail: Detail): Detail {
