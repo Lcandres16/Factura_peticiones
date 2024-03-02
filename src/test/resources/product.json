@@ -1,0 +1,23 @@
+[
+  {
+    "id": 4,
+    "description": "Tablet",
+    "brand": "Tech Gadgets",
+    "price": 349.99,
+    "stok": 75
+  },
+  {
+    "id": 5,
+    "description": "Digital Camera",
+    "brand": "Photography Gear",
+    "price": 799.99,
+    "stok": 20
+  },
+  {
+    "id": 6,
+    "description": "Wireless Mouse",
+    "brand": "Tech Accessories",
+    "price": 39.99,
+    "stok": 50
+  }
+]
