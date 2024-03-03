@@ -13,5 +13,6 @@ import org.springframework.stereotype.Repository
 interface DetailRepository: JpaRepository<Detail, Long?> {
     fun findById (id: Long?): Detail?
 
-
+    @Query("SELECT * FROM detail WHERE invoice_id = :id", nativeQuery = true)
+    fun findAllByInvoiceId(@Param("id") id: Long): List<Detail>
 }

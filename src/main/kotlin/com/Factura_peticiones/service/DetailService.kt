@@ -27,11 +27,22 @@ class DetailService {
     fun save(detail: Detail): Detail {
         val response = detailRepository.save(detail)
         val product = productRepository.findById(detail.productId)
+        val details = detailRepository.findAllByInvoiceId(detail.invoiceId!!)
+        val invoice = invoiceRepository.findById(detail.invoiceId)
+            ?:throw Exception("Id del Invoice no existe")
+        var total = 0.00
+
+        for(detailItem in details){
+            total += detailItem.quantity!! * detailItem.price!!
+        }
+
         product?.let { it ->
             val currentStock = it.stok ?: 0
             it.stok = currentStock - (detail.quantity ?: 0)
             productRepository.save(it)
         }
+        invoice.apply { this.total = total.toInt() }
+        invoiceRepository.save(invoice);
         return response
     }
 
