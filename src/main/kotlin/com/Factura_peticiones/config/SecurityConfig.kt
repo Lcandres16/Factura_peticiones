@@ -31,7 +31,7 @@ class SecurityConfig {
             .authorizeHttpRequests{authRequest->
                 authRequest
                     .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/detail/**", "/invoices/**")
+                        .requestMatchers("/detail/**", "/invoices/**", "/client/**")
                         .hasAnyRole( "sales","admin")
                         .requestMatchers (HttpMethod.GET, "/product/**")
                         .hasAnyRole("inventory","admin" )

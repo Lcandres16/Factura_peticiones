@@ -89,6 +89,7 @@ class ClientService {
         return clients
     }
 
+    fun listAllWithInvoicesAbove100() = clientRepository.listAllWithInvoicesAbove100()
 
 
    /* fun list (pageable: Pageable,client: Client):Page<Client>{

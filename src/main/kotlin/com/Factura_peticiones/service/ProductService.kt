@@ -98,4 +98,6 @@ class ProductService {
         return productDtoList
 
     }
+
+    fun getMostTenSoldProducts() = productRepository.getMostTenSoldProducts()
 }

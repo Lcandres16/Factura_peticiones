@@ -23,6 +23,9 @@ class ProductController {
         return productService.list()
     }
 
+    @GetMapping("/most-sold")
+    fun getMostTenSoldProducts() = productService.getMostTenSoldProducts()
+
     @PostMapping
     fun save (@RequestBody product: Product): ResponseEntity<Product> {
         return ResponseEntity(productService.save(product), HttpStatus.OK )

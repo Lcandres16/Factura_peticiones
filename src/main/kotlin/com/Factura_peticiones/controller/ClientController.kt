@@ -30,6 +30,7 @@ class ClientController {
         return clientService.list()
     }
 
+
     @PostMapping
     fun save(@RequestBody client: Client): ResponseEntity<Client> {
         return ResponseEntity(clientService.save(client), HttpStatus.OK)
@@ -50,11 +51,11 @@ class ClientController {
         return clientService.delete(id)
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     fun listById(@PathVariable("id") id: Long): ResponseEntity<*> {
         return ResponseEntity(clientService.listById(id), HttpStatus.OK)
 
-    }
+    }*/
 
     private val log: Logger = LoggerFactory.getLogger(Client::class.java)
 
@@ -67,7 +68,8 @@ class ClientController {
     }
 
 
-
+    @GetMapping("/invoices-above-100")
+    fun listAllWithInvoicesAbove100() = clientService.listAllWithInvoicesAbove100()
 
 
    /* @GetMapping
